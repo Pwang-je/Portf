@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+
+
+/***********************
+        # header
+***********************/
+
+
+
+
+/***********************
+        # content
+***********************/
+
+
+#content .col-md-4 {
+    overflow: hidden;
+}
+    .pf-img-common, .exp {
+        height: 20rem;
+        background-size: cover;
+    }
+    .img-pf-1 {
+        background-image: url(../img/p-img-1.jpg);
+    }
+    .img-pf-2 {
+        background-image: url(../img/p-img-2.jpg);
+    }
+    .img-pf-3 {
+        background-image: url(../img/p-img-3.jpg);
+    }
+
+
+
+
+/***********************
+        # footer
+***********************/
