@@ -15,14 +15,17 @@ html {
 ***********************/
 
 #header {
-    position: absolute;
-    height: 300px;
-    background-color: red;
+    min-height: 600px;
 }
-    #header .navbar {
-        /* position: relative; */
-        margin-top: 2rem;
+    #header img {
+        position: absolute;
+        width: 100%;    height: auto;
+        background-size: 100% auto !important;
     }
+        #header .navbar {
+            position: relative;
+            margin-top: 2rem;
+        }
 
 /***********************
         # content
@@ -33,6 +36,33 @@ html {
 
 /* Skills */
 
+.skills {
+    position: relative;
+    height: 100%;
+}
+    .skills ul {
+        text-align: center;
+        list-style: none;
+    }
+        .chart {
+            display: inline-block;
+            position: relative;
+            width: 140px;   height: 140px;
+            margin: 0 14px;
+            padding-top: 35px;
+            vertical-align: top;
+        }
+            span {
+                display: block;
+                font-size: 1.4em;
+                font-weight: normal;
+                text-align: center;
+            }
+            canvas {
+                position: absolute;
+                top: 0;     left: 0;
+                width: 130px !important;   height: 130px !important;
+            }
 
 /* Services */
 
@@ -56,6 +86,18 @@ html {
     }
 
 /* Contact */
+#content .contact {
+    margin-top: 2rem;
+}
+    .con-mail {
+        margin-bottom: 2rem;
+    }
+        #content .con-mail i span,
+        #content .con-maps i span {
+            display: inline;
+            padding: 2rem;
+            font-size: 26px;
+        }
 
 
 /***********************
