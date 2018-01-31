@@ -89,9 +89,9 @@ var options = {
     scaleColor: false,
     trackColor: 'rgba(255,255,255,0.5)',
     barColor: '#000000', /* E7F7F5 bar color changes */
-    lineWidth: 4,
+    lineWidth: 6,
     lineCap: 'butt',
-    size: 130
+    size: 120
 };
 
 window.addEventListener('DOMContentLoaded', function() {

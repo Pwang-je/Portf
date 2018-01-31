@@ -18,11 +18,9 @@
 </head>
 <body>
 
-<div id="header">
+<div id="header" class="container-fluid">
 
-    <img src="img/header-image.jpg" alt="header">
     <div class="container">
-
         <!-- header-navigation -->
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -63,23 +61,89 @@
                 <li class="chart" data-percent="75"><span>75%</span>HTML/CSS</li>
                 <li class="chart" data-percent="45"><span>45%</span>Javascript / jQuery</li>
                 <li class="chart" data-percent="65"><span>65%</span>PSD</li>
+                <li class="chart" data-percent="65"><span>65%</span>PSD</li>
             </ul>
 
-            <ul>
+            <!-- <ul>
                 <li class="chart" data-percent="75"><span>75%</span>HTML/CSS</li>
                 <li class="chart" data-percent="45"><span>45%</span>Javascript / jQuery</li>
                 <li class="chart" data-percent="65"><span>65%</span>PSD</li>
-            </ul>
+            </ul> -->
         </div>
     </div>  <!-- // .container skills -->
 
 
     <!-- Services -->
-    <div class="container">
-        <div class="col-md-12">
+    <div class="container services">
+        <div class="col-md-12 serv-header">
             <h2>Services</h2>
         </div>
+
+        <div class="col-md-12 serv-box">
+            <div class="col-md-4">
+                <img src="img/service-1.png" alt="">
+                <h3>web standard development </br> publishing ui dev.</h3>
+                <span>internet explorer exception chrome, safari, firefox etc..</span>
+            </div>
+
+            <div class="col-md-4">
+                <img src="img/service-2.png" alt="">
+                <h3>web standard development </br> publishing ui dev.</h3>
+                <span>internet explorer exception chrome, safari, firefox etc..</span>
+            </div>
+
+            <div class="col-md-4">
+                <img src="img/service-3.png" alt="" class="serv-img-fix">
+                <h3>web standard development </br> publishing ui dev.</h3>
+                <span>internet explorer exception chrome, safari, firefox etc..</span>
+            </div>
+        </div>
+
     </div>  <!-- // .container Services -->
+
+
+    <!-- Work process -->
+    <div class="container work-process">
+
+        <div class="col-md-12">
+            <h2>Work Process</h2>
+        </div>
+
+        <div class="col-md-12 work-main">
+            <div class="col-md-2">
+                <i class="fa fa-lightbulb-o fa-3x work-box" aria-hidden="true">
+                    <span>IDEA</span>
+                </i>
+            </div>
+
+            <div class="col-md-2">
+                <i class="fa fa-share-alt fa-3x work-box" aria-hidden="true">
+                    <span>CONCEPT</span>
+                </i>
+            </div>
+            <div class="col-md-2">
+                <i class="fa fa-paint-brush fa-3x work-box" aria-hidden="true">
+                    <span>DESIGN</span>
+                </i>
+            </div>
+            <div class="col-md-2">
+                <i class="fa fa-code fa-3x work-box" aria-hidden="true">
+                    <span>DEVELOP</span>
+                </i>
+            </div>
+            <div class="col-md-2">
+                <i class="fa fa-check fa-3x work-box" aria-hidden="true">
+                    <span>TEST</span>
+                </i>
+            </div>
+            <div class="col-md-2">
+                <i class="fa fa-television fa-3x work-box" aria-hidden="true">
+                    <span>LAUNCH</span>
+                </i>
+            </div>
+
+        </div>
+    </div>  <!-- // .container Work Process -->
 
 
     <!-- Portfolio -->
@@ -135,23 +199,28 @@
 
 
     <!-- Contact -->
-    <div class="container">
-        <div class="col-md-12">
-            <h2>Get in Touch</h2>
-        </div>
+    <div class="container contact">
 
         <div class="col-md-6 contact">
+            <h2>Get in Touch</h2>
             <div class="col-md-12 con-mail">
                 <i class="fa fa-envelope-o fa-2x" aria-hidden="true"><span>asdf@gmail.com</span></i>
             </div>  <!-- email -->
             <div class="col-md-12 con-maps">
-                <i class="fa fa-street-view fa-2x" aria-hidden="true"><span>asdfasdfasdfasdfasdf</span></i>
-
-
+                <i class="fa fa-street-view fa-2x" aria-hidden="true"><span>asdfasdfasdff</span></i>
+                <img src="img/maps.png" alt="">
             </div>  <!-- maps -->
         </div>
-        <div class="col-md-6">
 
+        <div class="col-md-6">
+            <h2>Contact me</h2>
+            <form action="#.php" id="form" class="form" method="post">
+                <input type="text" name="name" placeholder="NAME" required="">
+                <input type="text" name="phone" placeholder="PHONE">
+                <input type="text" name="email" placeholder="E-MAIL">
+                <textarea name="message" id="msg" cols="30" rows="10" placeholder="MESSAGE"></textarea>
+                <input type="submit" id="submit" class="btn" value="Send">
+            </form>
         </div>
     </div>  <!-- // .container Contact -->
 
@@ -162,7 +231,7 @@
 
 
 <div id="footer">
-<i class="fa fa-address-book fa-5x" aria-hidden="true"></i>
+
 
 </div>  <!-- // #footer -->
 

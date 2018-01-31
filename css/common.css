@@ -15,7 +15,9 @@ html {
 ***********************/
 
 #header {
-    min-height: 600px;
+    min-height: 700px;
+    background: url(../img/header-image.jpg) no-repeat center;
+    background-size: cover;
 }
     #header img {
         position: absolute;
@@ -38,18 +40,19 @@ html {
 
 .skills {
     position: relative;
-    height: 100%;
+    height: 100%;   min-height: 60rem;
 }
     .skills ul {
+        margin-top: 20rem;
         text-align: center;
         list-style: none;
     }
         .chart {
             display: inline-block;
             position: relative;
-            width: 140px;   height: 140px;
-            margin: 0 14px;
-            padding-top: 35px;
+            width: 170px;   height: 140px;
+            margin: 0 40px;
+            padding-top: 50px;
             vertical-align: top;
         }
             span {
@@ -61,13 +64,53 @@ html {
             canvas {
                 position: absolute;
                 top: 0;     left: 0;
-                width: 130px !important;   height: 130px !important;
+                width: 160px !important;   height: 160px !important;
             }
 
 /* Services */
 
+.services {
+    min-height: 60rem;
+}
+    .serv-header {
+        /* margin: 4rem 0; */
+    }
+        .serv-box {
+            margin: 16rem 0;
+            text-align: center;
+            background-size: cover;
+        }
+            .serv-box img {
+                width: 68%; height: 20rem;
+            }
+            .serv-img-fix {
+                width: 30% !important;
+            }
+
+
+/* Work process */
+
+.work-process {
+    min-height: 60rem;
+}
+    .work-main {
+        margin-top: 8rem;
+    }
+        .work-box {
+            width: 100%;     height: 100%;
+            padding: 1rem 1rem;
+            margin: 14rem 2rem;
+            border: 2px solid black;
+            text-align: center;
+        }
+            .work-process span {
+                margin-top: 1.4rem;
+                text-align: center;
+                font-size: 2rem;
+            }
 
 /* Portfolio */
+
 #content .col-md-4 {
     overflow: hidden;
 }
@@ -87,10 +130,10 @@ html {
 
 /* Contact */
 #content .contact {
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
 }
     .con-mail {
-        margin-bottom: 2rem;
+        margin: 2rem 0;
     }
         #content .con-mail i span,
         #content .con-maps i span {
@@ -98,10 +141,17 @@ html {
             padding: 2rem;
             font-size: 26px;
         }
+        .con-maps img {
+            max-width: 100%;
+            margin: 2rem 0;
+        }
 
 
 /***********************
         # footer
 ***********************/
 
-
+#footer {
+    width: 100%;    height: 300px;
+    background-color: red;
+}
