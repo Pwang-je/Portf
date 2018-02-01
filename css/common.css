@@ -7,22 +7,21 @@ html {
     -ms-text-size-adjust: none;
     overflow-y: scroll;
 }
-
-.scroll-top{
-    display:none;
-    position:fixed;
-    top: 60rem;     right: 2rem;
-    width:auto;    height: 64px;
-    padding:10px;
-    border: 2px solid #444;
-    border-radius: 15px;
-    color: #444;
-    background-color: red;
-    z-index: 999;
-}
-.scroll-top:hover{
-    text-decoration:none;
-}
+    .scroll-top{
+        display:none;
+        position:fixed;
+        top: 80rem;    right: 2rem;
+        width:auto;    height: 64px;
+        padding:10px;
+        border: 2px solid #444;
+        border-radius: 15px;
+        color: #444;
+        background-color: red;
+        z-index: 999;
+    }
+    .scroll-top:hover{
+        text-decoration:none;
+    }
 /***********************
         # header
 ***********************/
