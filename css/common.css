@@ -7,6 +7,9 @@ html {
     -ms-text-size-adjust: none;
     overflow-y: scroll;
 }
+body {
+    background-color: #F3F3F3;
+}
     .scroll-top{
         display:none;
         position:fixed;
@@ -16,12 +19,20 @@ html {
         border: 2px solid #444;
         border-radius: 15px;
         color: #444;
-        background-color: red;
+        background-color: #ffffff;
         z-index: 999;
     }
     .scroll-top:hover{
         text-decoration:none;
     }
+    .about-me, .skills, .services,
+    .work-process, .portfol, .contact {
+        margin: 6rem auto;
+        /* border-radius: 2rem; */
+        background-color: #ffffff;
+        box-shadow: 10px 10px 30px;
+    }
+
 /***********************
         # header
 ***********************/
@@ -55,6 +66,7 @@ html {
     height: 100%;   min-height: 60rem;
 }
     .skills ul {
+        height: 20rem;
         margin-top: 20rem;
         text-align: center;
         list-style: none;
@@ -111,7 +123,7 @@ html {
         .work-box {
             width: 100%;     height: 100%;
             padding: 1rem 1rem;
-            margin: 14rem 2rem;
+            margin: 14rem 0;
             border: 2px solid black;
             text-align: center;
         }
@@ -127,19 +139,116 @@ html {
 #content .col-md-4 {
     overflow: hidden;
 }
-    .pf-img-common, .exp {
-        height: 20rem;
-        background-size: cover;
+        .grid {
+            max-width: 1300px;
+            padding: 20px 20px 100px 20px;
+            margin: 0 auto;
+            text-align: center;
+            list-style: none;
+        }
+            .grid li {
+                display: inline-block;
+                width: 480px;
+                margin: 0;
+                padding: 20px;
+                text-align: left;
+                position: relative;
+                box-shadow: 10px 10px 30px;
+            }
+            .grid figure {
+                position: relative;
+                margin: 0;
+            }
+                .grid figure img {
+                    display: block;
+                    position: relative;
+                    max-width: 100%;   height: 280px;
+                }
+                .grid figcaption {
+                    position: absolute;
+                    top: 0;     left: 0;
+                    padding: 20px;
+                    background: #2c3f52;
+                    color: #ed4e6e;
+                }
+                    .grid figcaption h2 {
+                        margin: 0;
+                        padding: 0;
+                        color: white;
+                    }
+                    .grid figcaption a {
+                        /* display: inline-block;
+                        padding: 5px 10px;
+                        border-radius: 3px;
+                        border: 1px solid #ed4e6e;
+                        text-align: center;
+                        text-decoration: none;
+                        background: #ed4e6e; */
+                        color: #fff;
+                    }
+                    .grid figcaption a:hover {
+                        text-decoration: none;
+                        color: #ed4e6e;
+                    }
+@media screen and (max-width: 31.5em) {
+    .grid {
+        padding: 10px 10px 100px 10px;
     }
-    .img-pf-1 {
-        background-image: url(../img/p-img-1.jpg);
+    .grid li {
+        width: 100%;
+        min-width: 300px;
     }
-    .img-pf-2 {
-        background-image: url(../img/p-img-2.jpg);
+}
+    .grid-style figcaption {
+        width: 100%;    height: 100%;
+        opacity: 0;
+        text-align: center;
+        backface-visibility: hidden;
+        transition: transform 0.5s, opacity0.3s;
     }
-    .img-pf-3 {
-        background-image: url(../img/p-img-3.jpg);
+    .no-touch .grid-style figure:hover figcaption,
+    .grid-style figure.cs-hover figcaption {
+        opacity: 1;
+        transform: translate(15px, 15px);
     }
+    .grid-style figcaption h2 {
+        /* margin-top: 10px; */
+        margin: 10px 0;
+    }
+        .grid-style figcaption span {
+            display: block;
+            font-weight: bold;
+            /* font-size:14px; */ /* bar text size */
+        }
+        .grid-style figcaption a {
+            /* margin-top: 30px; */
+        }
+
+/* Progressbar class */
+.grid-style h5 {
+
+}
+.progressbar {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 35px;
+    position: relative;
+    background-color: #EEEEEE;
+    box-shadow: inset 0px 1px 1px rgba(0,0,0,.1);
+}
+.proggress{
+    height: 8px;
+    width: 10px;
+    background-color: #3498db;
+}
+.percentCount{
+    float:right;
+    margin-top: 10px;
+    clear: both;
+    font-weight: bold;
+    font-family: Arial
+}
+
 
 /* Contact */
 #content .contact {

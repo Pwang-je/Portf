@@ -59,8 +59,8 @@
                     scaleColor: "#dfe0e0",
                     scaleLength: 5,
                     lineCap: "round",
-                    lineWidth: 3,
-                    size: 110,
+                    lineWidth: 3,   /* 3*/
+                    size: 110,  /* 110 */
                     rotate: 0,
                     animate: 1e3,
                     renderer: a,
@@ -89,9 +89,9 @@ var options = {
     scaleColor: false,
     trackColor: 'rgba(255,255,255,0.5)',
     barColor: '#000000', /* E7F7F5 bar color changes */
-    lineWidth: 6,
+    lineWidth: 6,   /* 6 */
     lineCap: 'butt',
-    size: 120
+    size: 200   /* 120 */
 };
 
 window.addEventListener('DOMContentLoaded', function() {

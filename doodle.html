@@ -3,13 +3,123 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	</script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <style>
+        .grid {
+            max-width: 1300px;
+            padding: 20px 20px 100px 20px;
+            margin: 0 auto;
+            text-align: center;
+            list-style: none;
+        }
+            .grid li {
+                display: inline-block;
+                width: 440px;
+                margin: 0;
+                padding: 20px;
+                text-align: left;
+                position: relative;
+            }
+            .grid figure {
+                position: relative;
+                margin: 0;
+            }
+                .grid figure img {
+                    display: block;
+                    position: relative;
+                    max-width: 100%;
+                }
+                .grid figcaption {
+                    position: absolute;
+                    top: 0;     left: 0;
+                    padding: 20px;
+                    background: red;
+                    color: blue;
+                }
+                    .grid figcaption h2 {
+                        margin: 0;
+                        padding: 0;
+                        color: green;
+                    }
+                    .grid figcaption span:before {
+                        content: 'by';
+                    }
+                    .grid figcaption a {
+                        display: inline-block;
+                        padding: 5px 10px;
+                        border-radius: 2px;
+                        text-align: center;
+                        background: #ed4e6e;
+                        color: #fff;
+                    }
+@media screen and (max-width: 31.5em) {
+    .grid {
+        padding: 10px 10px 100px 10px;
+    }
+    .grid li {
+        width: 100%;
+        min-width: 300px;
+    }
+}
+
+    .grid-style figcaption {
+        width: 100%;    height: 100%;
+        opacity: 0;
+        text-align: center;
+        backface-visibility: hidden;
+        transition: transform 0.5s, opacity0.3s;
+    }
+    .no-touch .grid-style figure:hover figcaption,
+    .grid-style figure.cs-hover figcaption {
+        opacity: 1;
+        transform: translate(15px, 15px);
+    }
+    .grid-style figcaption h2 {
+        margin-top: 70px;
+    }
+        .grid-style figcaption span {
+            display: block;
+        }
+        .grid-style figcaption a {
+            margin-top: 30px;
+        }
+
+
+
+    </style>
+
 </head>
 <body>
 
+<ul class="grid grid-style">
+    <li>
+
+        <figure>
+            <img src="img/p-img-1.jpg" alt="">
+            <figcaption>
+                <h2>camera</h2>
+                <span>1231 jacobbb</span>
+                <a href="https://daum.net">take a look?</a>
+            </figcaption>
+        </figure>
+
+    </li>
+</ul>
 
 
+
+
+<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/data-chart.js"></script>
+<script type="text/javascript" src="js/modernizr.custom.js"></script>
+<script type="text/javascript" src="js/toucheffects.js"></script>
 </body>
 </html>
