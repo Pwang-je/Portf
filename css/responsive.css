@@ -253,11 +253,11 @@ figure.image-effect figcaption > div {
     align-items: center;
     padding: 1rem;
 }
-    /* .grid figure img {
-        height: 280px;
-    } */
+    .grid figure {
+        width: auto;
+    }
     figure.image-effect figcaption > div {
-        padding: 1em;
+        /* padding: 1em; */
     }
 
 /* contact */
