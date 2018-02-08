@@ -35,12 +35,10 @@
 .port-wrap {
     margin: 3rem 0;
 }
-.grid {
-    padding: 0;
+
+figure.image-effect figcaption > div {
+    padding: 2em 3em 2em 1em;
 }
-    .grid li {
-        width: auto;
-    }
 
 /* contact */
 .con-left {
@@ -83,6 +81,7 @@
         }
     .chart-wrap {
         display: block;
+        margin: 0 0 4rem 0;
     }
     .chart-1, .chart-3 {
         margin-right: 0;
@@ -180,6 +179,9 @@
         .about-left div:nth-child(2) {
             font-size: 4rem;
         }
+    .about-right img {
+        min-height: 300px;
+    }
 
 /* skills */
 .skills-title h2 {
@@ -246,11 +248,16 @@
             margin: 0;
         }
 .grid {
-    padding: 0;
-    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
 }
-    .grid figure img {
+    /* .grid figure img {
         height: 280px;
+    } */
+    figure.image-effect figcaption > div {
+        padding: 1em;
     }
 
 /* contact */
@@ -278,10 +285,6 @@
             .con-add .col-xs-8 span {
                 font-size: 14px;
             }
-        .con-maps {
-            -webkit-box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
-                    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
-        }
     .con-right {
         margin: 3rem 0;
     }
