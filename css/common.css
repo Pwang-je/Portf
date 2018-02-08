@@ -13,7 +13,7 @@ body {
     .scroll-top{
         display:none;
         position:fixed;
-        top: 80rem;    right: 2rem;
+        top: 74rem;    right: 2rem;
         width:auto;    height: 64px;
         padding:10px;
         border: 2px solid #444;
@@ -29,7 +29,8 @@ body {
     .work-process, .portfol, .contact {
         margin: 6rem auto;
         background-color: #ffffff;  /* #ffffff#F3F3F3 */
-        box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
+                box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
     }
 h2 {
     margin-left: 10rem;
@@ -93,35 +94,32 @@ h2 {
 
 /* Skills */
 
-.skills {
-    position: relative;
-    height: 100%;   min-height: 60rem;
+.skills ul {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    text-align: center;
+    list-style: none;
 }
-    .skills ul {
-        height: 20rem;
-        margin-top: 14rem;
-        text-align: center;
-        list-style: none;
+    .chart-wrap {
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        margin: 0 0 4rem 2rem;
     }
-        .chart {
-            display: inline-block;
-            position: relative;
-            width: 170px;   height: 140px;
-            margin: 0 40px;
-            padding-top: 50px;
-            vertical-align: top;
+    .skills li {
+        /* margin-right: 14rem; */
+    }
+        .chart-1, .chart-3 {
+            margin-right: 12rem;
         }
-            .chart span {
-                display: block;
-                font-size: 1.4em;
-                font-weight: normal;
-                text-align: center;
-            }
-            canvas {
-                position: absolute;
-                top: 0;     left: 0;
-                width: 160px !important;   height: 160px !important;
-            }
+        .chart-span {
+            margin: 3rem 0;
+            font-size: 16px;
+        }
 
 /* Services */
 
@@ -129,7 +127,7 @@ h2 {
     min-height: 60rem;
 }
     .serv-box {
-        margin: 14rem 0;
+        margin: 8rem 0;
         text-align: center;
         background-size: cover;
     }
@@ -151,7 +149,8 @@ h2 {
         text-align: center;
     }
     .work-shadow {
-        box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
+                box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
     }
         .work-main figure {
             width: 100%;
@@ -172,6 +171,9 @@ h2 {
 #content .col-md-4 {
     overflow: hidden;
 }
+    .port-wrap div {
+        padding: 0;
+    }
     .grid {
         max-width: 1300px;
         padding: 20px 20px 100px 20px;
@@ -186,7 +188,6 @@ h2 {
             padding: 20px;
             text-align: left;
             position: relative;
-            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
         }
         .grid figure {
             position: relative;
@@ -229,13 +230,18 @@ h2 {
         width: 100%;    height: 100%;
         opacity: 0;
         text-align: center;
-        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+        -webkit-transition: opacity0.3s, -webkit-transform 0.5s;
+        transition: opacity0.3s, -webkit-transform 0.5s;
         transition: transform 0.5s, opacity0.3s;
+        transition: transform 0.5s, opacity0.3s, -webkit-transform 0.5s;
     }
     .no-touch .grid-style figure:hover figcaption,
     .grid-style figure.cs-hover figcaption {
         opacity: 1;
-        transform: translate(15px, 15px);
+        -webkit-transform: translate(15px, 15px);
+                transform: translate(15px, 15px);
     }
     .grid-style figcaption h2 {
         /* margin-top: 10px; */
@@ -254,7 +260,8 @@ h2 {
     margin-bottom: 35px;
     position: relative;
     background-color: #EEEEEE;
-    box-shadow: inset 0px 1px 1px rgba(0,0,0,.1);
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,.1);
+            box-shadow: inset 0px 1px 1px rgba(0,0,0,.1);
 }
 .proggress{
     height: 8px;
@@ -294,7 +301,7 @@ h2 {
             }
             .con-maps img {
                 width: 100%;    height: 0 auto;
-                margin-top: 2rem;
+                margin: 2rem 0;
             }
 
 

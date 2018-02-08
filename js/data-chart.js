@@ -1,102 +1,138 @@
-/**!
- * easyPieChart
- * Lightweight plugin to render simple, animated and retina optimized pie charts
- *
- * @license Dual licensed under the MIT (https://www.opensource.org/licenses/mit-license.php) and GPL (https://www.opensource.org/licenses/gpl-license.php) licenses.
- * @author Robert Fleischmann <rendro87@gmail.com> (http://robert-fleischmann.de)
- * @version 2.0.1
- **/
-! function() {
-    var a = function(a, b) {
-            var c = document.createElement("canvas");
-            "undefined" != typeof G_vmlCanvasManager && G_vmlCanvasManager.initElement(c);
-            var d = c.getContext("2d");
-            if (c.width = c.height = b.size, a.appendChild(c), window.devicePixelRatio > 1) {
-                var e = window.devicePixelRatio;
-                c.style.width = c.style.height = [b.size, "px"].join(""), c.width = c.height = b.size * e, d.scale(e, e)
-            }
-            d.translate(b.size / 2, b.size / 2), d.rotate((-0.5 + b.rotate / 180) * Math.PI);
-            var f = (b.size - b.lineWidth) / 2;
-            b.scaleColor && b.scaleLength && (f -= b.scaleLength + 2);
-            var g = function(a, b, c) {
-                    c = Math.min(Math.max(0, c || 1), 1), d.beginPath(), d.arc(0, 0, f, 0, 2 * Math.PI * c, !1), d.strokeStyle = a, d.lineWidth = b, d.stroke()
-                },
-                h = function() {
-                    var a, c, e = 24;
-                    d.lineWidth = 1, d.fillStyle = b.scaleColor, d.save();
-                    for (var e = 24; e >= 0; --e) 0 === e % 6 ? (c = b.scaleLength, a = 0) : (c = .6 * b.scaleLength, a = b.scaleLength - c), d.fillRect(-b.size / 2 + a, 0, c, 1), d.rotate(Math.PI / 12);
-                    d.restore()
-                };
-            Date.now = Date.now || function() {
-                return +new Date
-            };
-            var i = function() {
-                return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function(a) {
-                    window.setTimeout(a, 1e3 / 60)
-                }
-            }();
-            this.clear = function() {
-                d.clearRect(b.size / -2, b.size / -2, b.size, b.size)
-            }, this.draw = function(a) {
-                this.clear(), b.scaleColor && h(), b.trackColor && g(b.trackColor, b.lineWidth), d.lineCap = b.lineCap;
-                var c;
-                c = "function" == typeof b.barColor ? b.barColor(a) : b.barColor, a > 0 && g(c, b.lineWidth, a / 100)
-            }.bind(this), this.animate = function(a, c) {
-                var d = Date.now();
-                b.onStart(a, c);
-                var e = function() {
-                    var f = Math.min(Date.now() - d, b.animate),
-                        g = b.easing(this, f, a, c - a, b.animate);
-                    this.draw(g), b.onStep(a, c, g), f >= b.animate ? b.onStop(a, c) : i(e)
-                }.bind(this);
-                i(e)
-            }.bind(this)
-        },
-        b = function(b, c) {
-            var d, e = {
-                    barColor: "#ef1e25",
-                    trackColor: "#f9f9f9",
-                    scaleColor: "#dfe0e0",
-                    scaleLength: 5,
-                    lineCap: "round",
-                    lineWidth: 3,   /* 3*/
-                    size: 110,  /* 110 */
-                    rotate: 0,
-                    animate: 1e3,
-                    renderer: a,
-                    easing: function(a, b, c, d, e) {
-                        return (b /= e / 2) < 1 ? d / 2 * b * b + c : -d / 2 * (--b * (b - 2) - 1) + c
-                    },
-                    onStart: function() {},
-                    onStep: function() {},
-                    onStop: function() {}
-                },
-                f = {},
-                g = 0,
-                h = function() {
-                    this.el = b, this.options = f;
-                    for (var a in e) e.hasOwnProperty(a) && (f[a] = c && "undefined" != typeof c[a] ? c[a] : e[a], "function" == typeof f[a] && (f[a] = f[a].bind(this)));
-                    f.easing = "string" == typeof f.easing && "undefined" != typeof jQuery && jQuery.isFunction(jQuery.easing[f.easing]) ? jQuery.easing[f.easing] : e.easing, d = new f.renderer(b, f), d.draw(g), b.dataset && b.dataset.percent && this.update(parseInt(b.dataset.percent, 10))
-                }.bind(this);
-            this.update = function(a) {
-                return a = parseInt(a, 10), f.animate ? d.animate(g, a) : d.draw(a), g = a, this
-            }.bind(this), h()
-        };
-    window.EasyPieChart = b
-}();
+(function($){
+ 	$.fn.extend({
+	    //pass the options variable to the function
+		percentcircle: function(options) {
+		//Set the default values, use comma to separate the settings, example:
+			var defaults = {
+			        animate : true,
+					diameter : 100,
+					guage: 6,
+					coverBg: '#fff',
+					bgColor: '#efefef',
+					fillColor: '#5c93c8',
+					percentSize: '15px',
+					percentWeight: 'normal'
+				},
+				styles = {
+				    cirContainer : {
+					    'width':150/*defaults.diameter*/,
+						'height':150/*defaults.diameter*/,
+						'margin':'auto'
+					},
+					cir : {
+					    'position': 'relative',
+					    'text-align': 'center',
+					    'width': 150/*defaults.diameter*/,
+					    'height': 150/*defaults.diameter*/,
+					    'border-radius': '100%',
+					    'background-color': defaults.bgColor,
+					    'background-image' : 'linear-gradient(91deg, transparent 50%, '+defaults.bgColor+' 50%), linear-gradient(90deg, '+defaults.bgColor+' 50%, transparent 50%)'
+					},
+					cirCover: {
+						'position': 'relative',
+					    'top': 10/*defaults.guage*/,
+					    'left': 10/*defaults.guage*/,
+					    'text-align': 'center',
+					    'width': 130/*defaults.diameter - (defaults.guage * 2)*/,
+					    'height': 130/*defaults.diameter - (defaults.guage * 2)*/,
+					    'border-radius': '100%',
+					    'background-color': defaults.coverBg
+					},
+					percent: {
+						'display':'block',
+						'width': 140/*defaults.diameter*/,
+					    'height': 140/*defaults.diameter*/,
+					    'line-height': 130/*defaults.diameter*/ + 'px',
+					    'vertical-align': 'middle',
+					    'font-size': defaults.percentSize,
+					    'font-weight': defaults.percentWeight,
+					    'color': defaults.fillColor
+                    }
+				};
 
-var options = {
-    scaleColor: false,
-    trackColor: 'rgba(255,255,255,0.5)',
-    barColor: '#000000', /* E7F7F5 bar color changes */
-    lineWidth: 6,   /* 6 */
-    lineCap: 'butt',
-    size: 200   /* 120 */
-};
+			var that = this,
+					template = '<div><div class="ab"><div class="cir"><span class="perc">{{percentage}}</span></div></div></div>',
+					options =  $.extend(defaults, options)
 
-window.addEventListener('DOMContentLoaded', function() {
-    var charts = [];
-    [].forEach.call(document.querySelectorAll('.chart'), function(el) {
-        charts.push(new EasyPieChart(el, options));
-    });
+			function init(){
+				that.each(function(){
+					var $this = $(this),
+					    //we need to check for a percent otherwise set to 0;
+						perc = Math.round($this.data('percent')), //get the percentage from the element
+						deg = perc * 3.6,
+						stop = options.animate ? 0 : deg,
+						$chart = $(template.replace('{{percentage}}',perc+'%'));
+						//set all of the css properties forthe chart
+						$chart.css(styles.cirContainer).find('.ab').css(styles.cir).find('.cir').css(styles.cirCover).find('.perc').css(styles.percent);
+
+					$this.append($chart); //add the chart back to the target element
+					setTimeout(function(){
+						animateChart(deg,parseInt(stop),$chart.find('.ab')); //both values set to the same value to keep the function from looping and animating
+					},250)
+	   	    	});
+			}
+
+			var animateChart = function (stop,curr,$elm){
+				var deg = curr;
+				if(curr <= stop){
+					if (deg>=180){
+						$elm.css('background-image','linear-gradient(' + (90+deg) + 'deg, transparent 50%, '+options.fillColor+' 50%),linear-gradient(90deg, '+options.fillColor+' 50%, transparent 50%)');
+			  	    }else{
+			  		    $elm.css('background-image','linear-gradient(' + (deg-90) + 'deg, transparent 50%, '+options.bgColor+' 50%),linear-gradient(90deg, '+options.fillColor+' 50%, transparent 50%)');
+			  	    }
+					curr ++;
+					setTimeout(function(){
+						animateChart(stop,curr,$elm);
+					},1);
+				}
+			};
+
+			init(); //kick off the goodness
+   	    }
+	});
+
+})(jQuery);
+
+$('.chart-1').percentcircle({
+animate : true,
+diameter : 100,
+guage: 3,
+coverBg: '#fff',
+bgColor: '#efefef',
+fillColor: '#DA4453',
+percentSize: '15px',
+percentWeight: 'normal'
+});
+
+$('.chart-2').percentcircle({
+animate : true,
+diameter : 100,
+guage: 3,
+coverBg: '#fff',
+bgColor: '#efefef',
+fillColor: '#E95546',
+percentSize: '18px',
+percentWeight: 'normal'
+});
+
+$('.chart-3').percentcircle({
+animate : true,
+diameter : 100,
+guage: 3,
+coverBg: '#fff',
+bgColor: '#efefef',
+fillColor: '#46CFB0',
+percentSize: '18px',
+percentWeight: 'normal'
+});
+
+$('.chart-4').percentcircle({
+animate : true,
+diameter : 100,
+guage: 3,
+coverBg: '#fff',
+bgColor: '#efefef',
+fillColor: '#8BC163',
+percentSize: '18px',
+percentWeight: '20px'
 });
